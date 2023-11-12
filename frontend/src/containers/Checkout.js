@@ -64,8 +64,51 @@ const Checkout = () => {
 
     const formStyling = orderAttempted ? 'needs-validation was-validated' : 'needs-validation';
 
-    const buy = e => {
+    const buy = async e => {
         e.preventDefault();
+
+        if (
+            first_name !== '' &&
+            email !== '' &&
+            street_address !== '' &&
+            city !== '' &&
+            country !== '' &&
+            state_province !== '' &&
+            postal_zip_code !== ''
+        ) {
+            const config = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            };
+
+            let { nonce } = await data.instance.requestPaymentMethod();
+
+            setProcessingOrder(true);
+
+            const body = JSON.stringify({
+                first_name,
+                email,
+                street_address,
+                city,
+                country,
+                state_province,
+                postal_zip_code,
+                nonce
+            });
+
+            try {
+                const res = await axios.post('http://localhost:8000/api/payment/process-payment', body, config);
+
+                if (res.status === 201)
+                    setSuccess(true);
+            } catch(err) {
+
+            }
+
+            setProcessingOrder(false);
+        }
 
     };
 
