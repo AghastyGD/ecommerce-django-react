@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import { Navigate } from 'react-router-dom';
+import axios from 'axios';
 import Layout from '../hocs/Layout';
+import DropIn from 'braintree-web-drop-in-react';
+import { Oval } from 'react-loader-spinner';
 
 const Checkout = () => {
     const [formData, setFormData] = useState({
@@ -11,8 +15,15 @@ const Checkout = () => {
         state_province: '',
         postal_zip_code: '',
     });
-
+    
+    const [clientToken, setClientToken] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [processingOrder, setProcessingOrder] = useState(false);
     const [orderAttempted, setOrderAttempted] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [data, setData] = useState({
+        instance: {}
+    })
 
     const {
         first_name,
@@ -24,6 +35,30 @@ const Checkout = () => {
         postal_zip_code,
     } = formData;
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const config = {
+                
+                headers: {
+                    'Accept': 'application/json',
+                }
+            }
+            try {
+                const res = await axios.get('http://localhost:8000/api/payment/generate-token', config);
+
+                if (res.status === 200) {
+                    setClientToken(res.data.token);
+                    setLoading(false);
+                    setProcessingOrder(false);
+                }
+            } catch(err) {
+               
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value.replace(/\ /g, '') });
     const onAddressChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -33,6 +68,9 @@ const Checkout = () => {
         e.preventDefault();
 
     };
+
+    if (success)
+        return <Navigate to='/thank-you' />;
 
     return (
         <Layout
@@ -178,14 +216,59 @@ const Checkout = () => {
                             </div>
                         </div>
                         <h3 className='mb-5 display-6'>Payment Information</h3>
-                        <button 
-                            className='btn btn-success btn-lg mt-5 shadow'
-                            onClick={() => setOrderAttempted(true)}
-                            type='submit'
-                        
-                        >
-                            Place Order
-                        </button>
+                        {
+                            loading || clientToken === null ? (
+                                <div className='d-flex justify-content-center align-items-center mt-5 mb-5'>
+                                    <Oval
+                                        type='Oval'
+                                        color='#00bfff'
+                                        width={50}
+                                        height={50}
+                                    />
+                                </div>
+                            ) : (
+                                <DropIn
+                                    options={{
+                                        authorization: clientToken,
+                                        paypal: {
+                                            flow: 'vault'
+                                        }
+                                    }}
+                                    onInstance={ instance => setData({ instance: instance })}
+                                />
+                            )
+                        }
+                        {
+                            processingOrder ? (
+                                <div className='d-flex justify-content-center align-items-center mt-5 mb-5'>
+                                    <Oval
+                                        type='Oval'
+                                        color='#00bfff'
+                                        width={50}
+                                        height={50}
+                                    />
+                                </div>
+                            ) : (
+                                <div>
+                                    {
+                                        loading ? (
+                                            <Fragment></Fragment>
+                                        ) : (
+                                            <button 
+                                                className='btn btn-success btn-lg mt-5 shadow'
+                                                onClick={() => setOrderAttempted(true)}
+                                                type='submit'
+                                            
+                                            >
+                                                Place Order
+                                            </button>
+
+                                        )
+                                    }
+                                </div>
+                            )
+                        }
+                    
                     </form>
 
                 </div>

@@ -40,12 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'payment',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'mini_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,7 +84,7 @@ DATABASES = {
         'NAME': 'mini_shop',
         'USER': 'root',
         'PASSWORD': 'uroot',
-        'HOST': '192.168.1.189',
+        'HOST': '192.168.161.238',
     }
 }
 
@@ -136,7 +137,7 @@ BT_PRIVATE_KEY = '70e561cce386f3932b4958d07338142b'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'htpp://localhost:3000',
+    'http://localhost:3000',
 ]
 
 # Default primary key field type
