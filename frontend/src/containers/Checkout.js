@@ -4,6 +4,7 @@ import axios from 'axios';
 import Layout from '../hocs/Layout';
 import DropIn from 'braintree-web-drop-in-react';
 import { Oval } from 'react-loader-spinner';
+import Processors from '../assets/images/cpu_ryzen.jpg';
 
 const Checkout = () => {
     const [formData, setFormData] = useState({
@@ -316,7 +317,24 @@ const Checkout = () => {
 
                 </div>
                 <div className='offset-1 col-6'>
-                    ORDER DETAILS
+                    <h3 className='display-6 mb-5'>Order Details:</h3>
+                    <div className='row'>
+                        <div className='col-4'>
+                            <img 
+                                className='img-fluid'
+                                src={Processors}
+                                alt='Mini Shop CPUs'
+                            />
+                        </div>
+                        <div className='offset-1 col-7 mt-3'>
+                            <p className='fs-5 lead'>
+                                Order Item:  Ryzen 5 5600G
+                            </p>
+                            <p className='lead fs-3'>
+                                <strong>Order Total: 6.300 MT</strong>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Layout>

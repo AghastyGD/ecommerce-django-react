@@ -57,7 +57,7 @@ class ProcessPaymentView(APIView):
                 country_name = 'United States'
                 country_code = 'US'
 
-            total_amount = '47.99'
+            total_amount = '6.300'
 
             if Customer.objects.filter(email=email).exists():
                 customer = Customer.objects.get(email=email)
