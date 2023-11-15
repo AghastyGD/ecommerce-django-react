@@ -1,0 +1,16 @@
+asgiref==3.7.2
+braintree==4.24.0
+certifi==2023.7.22
+charset-normalizer==3.3.2
+Django==3.2.23
+django-cors-headers==4.1.0
+django-environ==0.11.2
+djangorestframework==3.14.0
+idna==3.4
+psycopg2==2.9.9
+python-dotenv==0.21.1
+pytz==2023.3.post1
+requests==2.31.0
+sqlparse==0.4.4
+typing-extensions==4.7.1
+urllib3==2.0.7
