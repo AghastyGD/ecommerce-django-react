@@ -6,6 +6,7 @@ import DropIn from 'braintree-web-drop-in-react';
 import { Oval } from 'react-loader-spinner';
 import Processors from '../assets/images/cpu_ryzen.jpg';
 
+
 const Checkout = () => {
     const [formData, setFormData] = useState({
         first_name: '',
@@ -122,26 +123,26 @@ const Checkout = () => {
             content=''
 
         >
-            <h1 className='display-4 mt-5 mb-5'>Checkout Page</h1>
+            <h1 className='display-4 mt-5 mb-5'>Finalização da Compra</h1>
             <div className='row mb-5'>
                 <div className='col-5'>
                     <form className={formStyling} noValidate onSubmit={buy}>
-                        <h3 className='mb-5 display-6'>Your Information</h3>
+                        <h3 className='mb-5 display-6'>Suas Informações</h3>
                         <div className='form-group mb-3'>
                             <label className='form-label' htmlFor='first_name'>
-                                FIrst Name*
+                                Primeiro Nome*
                             </label>
                             <input
                                 className='form-control'
                                 type='text'
                                 name='first_name'
-                                placeholder='First Name*'
+                                placeholder='Primeiro nome'
                                 onChange={onChange}
                                 value={first_name}
                                 required
                             />
                             <div className='invalid-feedback'>
-                                Please Enter Your First Name
+                                Por favor digite o seu primeiro nome
                             </div>
                         </div>
                         <div className='form-group mb-3'>
@@ -152,54 +153,54 @@ const Checkout = () => {
                                 className='form-control'
                                 type='email'
                                 name='email'
-                                placeholder='Your Email*'
+                                placeholder='Seu email'
                                 onChange={onChange}
                                 value={email}
                                 required
                             />
                             <div className='invalid-feedback'>
-                                Please Enter Your Email
+                                Por favor digite o seu email
                             </div>
                         </div>
                         <div className='form-group mb-3'>
                             <label className='form-label' htmlFor='street_address'>
-                                Street Address*
+                                Endereço*
                             </label>
                             <input
                                 className='form-control'
                                 type='text'
                                 name='street_address'
-                                placeholder='Street Address*'
+                                placeholder='Endereço*'
                                 onChange={onAddressChange}
                                 value={street_address}
                                 required
                             />
                             <div className='invalid-feedback'>
-                                Please Provide Address
+                                Por favor informe um endereço
                             </div>
                         </div>
                         <div className='form-group mb-3'>
                             <label className='form-label' htmlFor='city'>
-                                City*
+                                Cidade*
                             </label>
                             <input
                                 className='form-control'
                                 type='text'
                                 name='city'
-                                placeholder='City*'
+                                placeholder='Cidade'
                                 onChange={onAddressChange}
                                 value={city}
                                 required
                             />
                             <div className='invalid-feedback'>
-                                Please Provide City
+                                Por favor informe a sua cidade
                             </div>
                         </div>
                         <div className='row mb-5 mt-3'>
                             <div className='col-5'>
                                 <div className='form-group mb-3'>
                                     <label className='form-label' htmlFor='city'>
-                                        Country*
+                                        País*
                                     </label>
                                     <select
                                         className='form-select'
@@ -209,57 +210,57 @@ const Checkout = () => {
                                         required
 
                                     >
-                                        <option value=''>Choose...</option>
-                                        <option value='mozambique'>Mozambique</option>
-                                        <option value='brazil'>Brazil</option>
-                                        <option value='united_states'>United States</option>
+                                        <option value=''>Selecionar...</option>
+                                        <option value='mozambique'>Moçambique</option>
+                                        <option value='brazil'>Brasil</option>
+                                        <option value='united_states'>Estados Unidos</option>
                                     </select>
                                     <div className='invalid-feedback'>
-                                        Please Provide Country
+                                        Por favor selecione o seu país
                                     </div>
                                 </div>
                             </div>
                             <div className='col-4'>
                                 <div className='form-group mb-3'>
                                     <label className='form-label' htmlFor='state_province'>
-                                        State/Province*
+                                        Estado/Província*
                                     </label>
                                     <input
                                         className='form-control'
                                         type='text'
                                         name='state_province'
-                                        placeholder='State/Province*'
+                                        placeholder='Estado/Província*'
                                         onChange={onAddressChange}
                                         value={state_province}
                                         required
                                     />
                                     <div className='invalid-feedback'>
-                                        Please Provide State/Province
+                                        Por favor informe a sua provincia
                                     </div>
                                 </div>
                             </div>
                             <div className='col-3'>
                                 <div className='form-group mb-3'>
                                     <label className='form-label' htmlFor='postal_zip_code'>
-                                        Zip Code*
+                                        Código Postal*
                                     </label>
                                     <input
                                         className='form-control'
                                         type='text'
                                         name='postal_zip_code'
-                                        placeholder='Zip Code*'
+                                        placeholder='Código Postal*'
                                         onChange={onAddressChange}
                                         value={postal_zip_code}
                                         required
                                     />
                                     <div className='invalid-feedback'>
-                                        Please Provide Postal/Zip Code
+                                        Por favor digite o seu código postal
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <h3 className='mb-5 display-6'>Payment Information</h3>
+                        <h3 className='mb-5 display-6'>Informações do Pagamento</h3>
                         {
                             loading || clientToken === null ? (
                                 <div className='d-flex justify-content-center align-items-center mt-5 mb-5'>
@@ -304,7 +305,7 @@ const Checkout = () => {
                                                 type='submit'
                                             
                                             >
-                                                Place Order
+                                                FAZER PEDIDO
                                             </button>
 
                                         )
@@ -317,7 +318,7 @@ const Checkout = () => {
 
                 </div>
                 <div className='offset-1 col-6'>
-                    <h3 className='display-6 mb-5'>Order Details:</h3>
+                    <h3 className='display-6 mb-5'>Informações do Pedido:</h3>
                     <div className='row'>
                         <div className='col-4'>
                             <img 
@@ -328,10 +329,10 @@ const Checkout = () => {
                         </div>
                         <div className='offset-1 col-7 mt-3'>
                             <p className='fs-5 lead'>
-                                Order Item:  Ryzen 5 5600G
+                                Item:  Ryzen 5 5600G
                             </p>
                             <p className='lead fs-3'>
-                                <strong>Order Total: 6.300 MT</strong>
+                                <strong>Total do Pedido: $101.24 </strong>
                             </p>
                         </div>
                     </div>

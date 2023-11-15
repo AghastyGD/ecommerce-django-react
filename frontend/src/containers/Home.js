@@ -12,16 +12,16 @@ const home = () => (
     >
         <h1 className='display-4 mt-5'>Mini Shop</h1>
         <h2 className='fs-4 fw-light fst-italic mt-3'>
-            Where you can buy the worlds greatest PCs hardwares...
+           Aqui você pode comprar as melhores peças para montagem do seu futuro PC GAMER...
         </h2>
         <div className='mt-5 bb-light p-5 rounded shadow'>
-            <h3 className='display-6'>Check out our unreal Ryzen 5 CPUs Set</h3>
+            <h3 className='display-6'>Veja este incrível CPU Ryzen 5 5600G</h3>
             <p className='lead mt-3 mb-4'>
-                One of the best CPUs on the market, with the most advanced integrated graphics that can
-                play all type of games in medium or high-end graphics quality!
+                Um dos melhores processadores com gráficos integrados do mundo inteiro, com ele você pode rodar
+                vários jogos recentes e ferramentas de edição gráfica na qualidade média ou alta hehe!
             </p>
             <Link className='btn btn-info shadow-sm' to='/checkout'>
-                I WANT THESE CPUs!
+                EU QUERO ESTE PROCESSADOR!
             </Link>
         </div>
         <div className='row mt-5 mb-5'>
@@ -41,7 +41,7 @@ const home = () => (
                         <span className='fs-4 fw-normal'>Threads:</span> 12
                     </li>
                     <li className='list-group-item fs-4 lead'>
-                        <span className='fs-4 fw-normal'>Default TDP:</span> 65W
+                        <span className='fs-4 fw-normal'>TDP Padrão:</span> 65W
                     </li>
                     <li className='list-group-item fs-4 lead'>
                         <span className='fs-4 fw-normal'>Base Clock:</span> 3.9GHz
@@ -53,10 +53,10 @@ const home = () => (
                         <span className='fs-4 fw-normal'>CPU Socket:</span> AM4
                     </li>
                     <li className='list-group-item fs-4 lead'>
-                        <span className='fs-4 fw-normal'>Max Operating Temperature:</span> 95°C
+                        <span className='fs-4 fw-normal'>Temperatura Máxima:</span> 95°C
                     </li>
                     <li className='list-group-item fs-4 lead'>
-                        <span className='fs-4 fw-normal'>Launch Date:</span> 4/13/2021
+                        <span className='fs-4 fw-normal'>Data de Lançamento:</span> 4/13/2021
                     </li>
                     <li className='list-group-item fs-4 lead'>
                         <span className='fs-4 fw-normal'>L2 Cache:</span> 3MB
