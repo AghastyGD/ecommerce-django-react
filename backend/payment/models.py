@@ -19,3 +19,20 @@ class Address(models.Model):
 
     def __str__(self):
         return self.address_id
+
+class PaymentMethod(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    billing_address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    token = models.CharField(max_length=36, unique=True)
+
+    def __str__(self):
+        return self.token
+
+class Order (models.Model):
+    transaction_id = models.CharField(max_length=255, unique=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    payment_method = models.ForeignKey(PaymentMethod, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.transaction_id
