@@ -1,5 +1,10 @@
 import os
 from pathlib import Path
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,10 +74,10 @@ WSGI_APPLICATION = 'mini_shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
     }
 }
 
@@ -119,9 +124,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-BT_MERCHANT_ID = os.getenv('BT_MERCHANT_ID')
-BT_PUBLIC_KEY = os.getenv('BT_PUBLIC_KEY')
-BT_PRIVATE_KEY = os.getenv('BT_PRIVATE_KEY')
+BT_MERCHANT_ID = env('BT_MERCHANT_ID')
+BT_PUBLIC_KEY = env('BT_PUBLIC_KEY')
+BT_PRIVATE_KEY = env('BT_PRIVATE_KEY')
 
 
 CORS_ALLOWED_ORIGINS = [
