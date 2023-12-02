@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Customer, Address
+from .serializers import CustomerSerializer, AddressSerializer
 import braintree
 
 gateway = braintree.BraintreeGateway (
@@ -202,3 +203,16 @@ class ProcessPaymentView(APIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
 
             )
+            
+@api_view(['GET'])
+def getCustomer(request):
+   customer = Customer.objects.all()
+   serializer = CustomerSerializer(customer, many = True)
+   return Response(serializer.data)
+   
+@api_view(['GET'])
+def getAddress(request):
+  address = Address.objects.all()
+  serializer = AddressSerializer(address, many = True)
+  return Response(serializer.data)
+  
