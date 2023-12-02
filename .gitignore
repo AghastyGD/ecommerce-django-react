@@ -1,3 +1,4 @@
 backend/venv
+backend/mini_shop/.env
 .history
 frontend/node_modules
