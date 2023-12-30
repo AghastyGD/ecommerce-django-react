@@ -4,6 +4,8 @@ Este projeto é um simples MiniShop desenvolvido com Django para o backend e Rea
 
 ## Configuração do Ambiente
 
+### Está com pressa? Veja agora a [demonstração live](https://mini-shop-frontend.vercel.app/)
+
 ### Configuração do Backend (Django)
 
 1. Instale as dependências do projeto:
