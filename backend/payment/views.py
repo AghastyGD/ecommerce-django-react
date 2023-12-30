@@ -39,7 +39,6 @@ class ProcessPaymentView(APIView):
             first_name = data['first_name']
             email = str(data['email'])
             email = email.lower()
-
             street_address = data['street_address']
             city = data['city']
             country = data['country']

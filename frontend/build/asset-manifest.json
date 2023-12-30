@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.325dd400.js",
+    "main.js": "/static/js/main.353ac2d1.js",
+    "static/media/cpu_ryzen.jpg": "/static/media/cpu_ryzen.2fbe72bdf805da7577e3.jpg",
     "index.html": "/index.html",
-    "main.325dd400.js.map": "/static/js/main.325dd400.js.map"
+    "main.353ac2d1.js.map": "/static/js/main.353ac2d1.js.map"
   },
   "entrypoints": [
-    "static/js/main.325dd400.js"
+    "static/js/main.353ac2d1.js"
   ]
 }
